@@ -85,6 +85,18 @@ a { color: inherit; }
 .ph-3 { --ph: radial-gradient(55% 50% at 50% 55%, #efd8c6 0%, transparent 70%), linear-gradient(170deg, #d6c2b0, #a28672); }
 .ph-4 { --ph: radial-gradient(50% 50% at 45% 40%, #e9d9b8 0%, transparent 70%), linear-gradient(140deg, #c2a983, #7a6247); }
 .ph-5 { --ph: radial-gradient(55% 50% at 55% 45%, #dfe1d3 0%, transparent 70%), linear-gradient(160deg, #a9b49c, #5e6c55); }
+.im-hero { --ph: url(img/01-hero.jpg) 68% 60% / cover no-repeat; }
+.im-stretch { --ph: url(img/02-stretch.jpg) center / cover no-repeat; }
+.im-training { --ph: url(img/03-training.jpg) 40% center / cover no-repeat; }
+.im-recovery { --ph: url(img/04-recovery.jpg) 60% center / cover no-repeat; }
+.im-face { --ph: url(img/05-facemassage.jpg) 45% center / cover no-repeat; }
+.im-hydra { --ph: url(img/06-hydration.jpg) 55% center / cover no-repeat; }
+.im-sig { --ph: url(img/07-signature.jpg) 55% center / cover no-repeat; }
+.im-therapist { --ph: url(img/08-therapist.jpg) center 25% / cover no-repeat; }
+.im-still { --ph: url(img/09-stilllife.jpg) center / cover no-repeat; }
+.im-a1 { --ph: url(img/10-avatar.jpg) center / cover no-repeat; }
+.im-a2 { --ph: url(img/11-avatar.jpg) center / cover no-repeat; }
+.im-a3 { --ph: url(img/12-avatar.jpg) center / cover no-repeat; }
 .ph-6 { --ph: radial-gradient(55% 50% at 50% 40%, #f3dfd2 0%, transparent 70%), linear-gradient(180deg, #dcc7b9, #b09382); }
 
 /* Ribbon */
@@ -195,10 +207,36 @@ a { color: inherit; }
 @media (min-width: 900px) { .team .person { grid-row: span 2; } .trust-stack { display: contents; } }
 @media (max-width: 899px) {
   .person .ph { aspect-ratio: 1 / 1; }
-  .trust-stack { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 6px; }
-  .trust { padding: 16px; border-radius: 18px; }
-  .trust h3 { font-size: 1.2rem; }
-  .trust p { font-size: 13px; }
+  .trust-stack { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; margin-top: 6px; }
+  .trust { grid-template-columns: 38px minmax(0, 1fr); column-gap: 14px; row-gap: 2px; padding: 16px 18px; border-radius: 18px; align-items: start; }
+  .trust .ic { grid-row: span 2; margin: 0; }
+  .trust h3 { font-size: 1.25rem; }
+  .trust p { font-size: 13.5px; }
+}
+
+/* Icons (SVG, so iOS never swaps them for emoji) */
+.i { width: 14px; height: 14px; display: block; }
+.pill--lg .go .i { width: 16px; height: 16px; }
+.arrow .i { width: 16px; height: 16px; }
+
+/* Stronger scrim so white type reads on real photos */
+.hero::before { background: linear-gradient(180deg, rgba(20,24,20,.4) 0%, rgba(20,24,20,0) 28%, rgba(20,24,20,0) 45%, rgba(20,24,20,.68) 100%); }
+.exp .ph::before { background: linear-gradient(180deg, rgba(20,24,20,0) 40%, rgba(20,24,20,.68) 100%); }
+
+/* Phone layout fixes */
+@media (max-width: 640px) {
+  .strip-head { flex-wrap: wrap; align-items: flex-start; }
+  .strip-head .arrows { display: none; }
+  .seg { display: flex; width: 100%; margin-top: 4px; }
+  .seg .chip { flex: 1; text-align: center; white-space: nowrap; }
+  .chips {
+    flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+    margin-inline: calc(-1 * clamp(20px, 3vw, 34px)); padding-inline: clamp(20px, 3vw, 34px);
+  }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip { flex: none; white-space: nowrap; }
+  .hero { min-height: 560px; }
+  .hero h1 { font-size: clamp(2.9rem, 13vw, 3.6rem); }
 }
 .ref { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; background: var(--panel); border-radius: var(--r); padding: 18px 22px; font-size: 14.5px; }
 
@@ -320,12 +358,15 @@ a { color: inherit; }
   <symbol id="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
     <path d="M3 9c3-2.5 6-2.5 9 0s6 2.5 9 0"/><path d="M3 13.5c3-2.5 6-2.5 9 0s6 2.5 9 0"/><path d="M5 18c2.4-1.6 4.8-1.6 7 0s4.6 1.6 7 0"/>
   </symbol>
+  <symbol id="i-ur" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11L11 5M6 5h5v5"/></symbol>
+  <symbol id="i-r" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></symbol>
+  <symbol id="i-l" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8H3M7 4L3 8l4 4"/></symbol>
 </svg>
 
-<div class="ribbon">Concept preview · brand name, photos, prices and reviews are placeholders</div>
+<div class="ribbon">Concept preview · AI-generated photos; brand, names, prices and reviews are placeholders</div>
 
 <div class="wrap hero-wrap">
-  <header class="hero ph ph-hero" data-label="Photo · therapist at work, warm daylight" id="top">
+  <header class="hero ph im-hero" id="top">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="topbar">
       <a class="logo" href="#top" aria-label="Your Brand, back to top"><svg aria-hidden="true"><use href="#mark"/></svg>Your Brand</a>
@@ -342,7 +383,7 @@ a { color: inherit; }
       <h1><span class="w">Stretch.</span> <span class="w">Breathe.</span> <span class="w">Glow.</span></h1>
       <div class="hero-side">
         <p>Stretching, training and facials at your villa or home in Bali. Your therapist brings everything.</p>
-        <a class="pill pill--light pill--lg" data-wa="First session" href="#" target="_blank" rel="noopener">Book your first session <span class="go">↗</span></a>
+        <a class="pill pill--light pill--lg" data-wa="First session" href="#" target="_blank" rel="noopener">Book your first session <span class="go"><svg class="i" aria-hidden="true"><use href="#i-ur"/></svg></span></a>
       </div>
     </div>
   </header>
@@ -357,7 +398,7 @@ a { color: inherit; }
       </div>
       <div class="about-right">
         <p class="statement">In a week that <em>never</em> slows down, <b>Your Brand</b> brings the stillness to your door.</p>
-        <a class="pill" href="#treatments">See treatments <span class="go">↗</span></a>
+        <a class="pill" href="#treatments">See treatments <span class="go"><svg class="i" aria-hidden="true"><use href="#i-ur"/></svg></span></a>
       </div>
     </div>
   </section>
@@ -373,14 +414,14 @@ a { color: inherit; }
       </div>
       <div class="treat">
         <div class="treat-media">
-          <div class="ph ph-1" id="tImg" data-label="Photo · assisted stretch" role="img" aria-label="Treatment photo placeholder"></div>
-          <div class="arrows"><button class="arrow" id="tPrev" aria-label="Previous treatment">←</button><button class="arrow next" id="tNext" aria-label="Next treatment">→</button></div>
+          <div class="ph im-stretch" id="tImg" role="img" aria-label="Assisted stretching session"></div>
+          <div class="arrows"><button class="arrow" id="tPrev" aria-label="Previous treatment"><svg class="i" aria-hidden="true"><use href="#i-l"/></svg></button><button class="arrow next" id="tNext" aria-label="Next treatment"><svg class="i" aria-hidden="true"><use href="#i-r"/></svg></button></div>
         </div>
         <div class="treat-info" role="tabpanel" id="tPanel" aria-live="polite">
           <h3 id="tName">Assisted Stretching</h3>
           <div class="treat-meta"><span id="tGroup">Body</span><span id="tDur">60 min</span><span class="price" id="tPrice">IDR 450k</span></div>
           <p id="tDesc">Deep, held stretches guided by your therapist. Good for desk backs, tight hips and poor sleep.</p>
-          <a class="pill" id="tBook" data-wa="Assisted stretching (60 min)" href="#" target="_blank" rel="noopener">Book now <span class="go">↗</span></a>
+          <a class="pill" id="tBook" data-wa="Assisted stretching (60 min)" href="#" target="_blank" rel="noopener">Book now <span class="go"><svg class="i" aria-hidden="true"><use href="#i-ur"/></svg></span></a>
         </div>
       </div>
       <p class="transport"><b>+ Transport</b> IDR 50k Canggu &amp; Seminyak · IDR 100k Ubud, paid once per visit <span class="sample">Sample prices</span></p>
@@ -393,15 +434,15 @@ a { color: inherit; }
         <h2 class="title" id="exp-title">What is your body <em>asking for?</em></h2>
         <p class="small" style="margin-top:10px">Pick what feels closest. We'll point you to the right session.</p>
       </div>
-      <div class="arrows"><button class="arrow" data-strip="exp" data-dir="-1" aria-label="Scroll back">←</button><button class="arrow next" data-strip="exp" data-dir="1" aria-label="Scroll forward">→</button></div>
+      <div class="arrows"><button class="arrow" data-strip="exp" data-dir="-1" aria-label="Scroll back"><svg class="i" aria-hidden="true"><use href="#i-l"/></svg></button><button class="arrow next" data-strip="exp" data-dir="1" aria-label="Scroll forward"><svg class="i" aria-hidden="true"><use href="#i-r"/></svg></button></div>
     </div>
     <div class="strip" id="exp">
-      <a class="exp" href="#treatments" data-pick="0"><div class="ph ph-2"><div class="cap"><h3>A stiff back from laptop days</h3><p>Assisted stretching · 60 min</p></div></div></a>
-      <a class="exp" href="#treatments" data-pick="2"><div class="ph ph-1"><div class="cap"><h3>Sore after a surf or a long flight</h3><p>Recovery session · 75 min</p></div></div></a>
-      <a class="exp" href="#treatments" data-pick="1"><div class="ph ph-5"><div class="cap"><h3>Want to get stronger, gently</h3><p>Personal training · 60 min</p></div></div></a>
-      <a class="exp" href="#treatments" data-pick="4"><div class="ph ph-3"><div class="cap"><h3>Skin dried out by sun and air-con</h3><p>Hydration facial · 60 min</p></div></div></a>
-      <a class="exp" href="#treatments" data-pick="3"><div class="ph ph-4"><div class="cap"><h3>Tension in your jaw and neck</h3><p>Face massage · 45 min</p></div></div></a>
-      <a class="exp" href="#treatments" data-pick="5"><div class="ph ph-6"><div class="cap"><h3>A proper treat before an event</h3><p>Signature facial · 75 min</p></div></div></a>
+      <a class="exp" href="#treatments" data-pick="0"><div class="ph im-stretch"><div class="cap"><h3>A stiff back from laptop days</h3><p>Assisted stretching · 60 min</p></div></div></a>
+      <a class="exp" href="#treatments" data-pick="2"><div class="ph im-recovery"><div class="cap"><h3>Sore after a surf or a long flight</h3><p>Recovery session · 75 min</p></div></div></a>
+      <a class="exp" href="#treatments" data-pick="1"><div class="ph im-training"><div class="cap"><h3>Want to get stronger, gently</h3><p>Personal training · 60 min</p></div></div></a>
+      <a class="exp" href="#treatments" data-pick="4"><div class="ph im-hydra"><div class="cap"><h3>Skin dried out by sun and air-con</h3><p>Hydration facial · 60 min</p></div></div></a>
+      <a class="exp" href="#treatments" data-pick="3"><div class="ph im-face"><div class="cap"><h3>Tension in your jaw and neck</h3><p>Face massage · 45 min</p></div></div></a>
+      <a class="exp" href="#treatments" data-pick="5"><div class="ph im-sig"><div class="cap"><h3>A proper treat before an event</h3><p>Signature facial · 75 min</p></div></div></a>
     </div>
   </section>
 
@@ -417,14 +458,14 @@ a { color: inherit; }
       </div>
     </div>
     <div class="plans" id="panel-plans" role="tabpanel" aria-labelledby="tab-plans">
-      <div class="plan"><p class="meta"><span>Body · 4 sessions</span></p><h3>Body, weekly</h3><p class="amount">IDR 1.6M<small>/ month</small></p><ul><li>Transport included</li><li>Mix stretching and training</li><li>Progress check every 4 weeks</li></ul><a class="pill" data-wa="Body monthly plan (4 sessions)" href="#" target="_blank" rel="noopener">Start this plan <span class="go">↗</span></a></div>
-      <div class="plan feature"><p class="meta"><span>Body · 8 sessions</span><span class="flag">Best value</span></p><h3>Body, twice a week</h3><p class="amount">IDR 3.0M<small>/ month</small></p><ul><li>Transport included</li><li>Fastest results for back and hips</li><li>Free reschedule up to 24 h before</li></ul><a class="pill" data-wa="Body monthly plan (8 sessions)" href="#" target="_blank" rel="noopener">Start this plan <span class="go">↗</span></a></div>
-      <div class="plan"><p class="meta"><span>Face · 4 facials</span></p><h3>Face, weekly</h3><p class="amount">IDR 2.1M<small>/ month</small></p><ul><li>Transport included</li><li>Treatment adjusted week by week</li><li>Home-care notes after each visit</li></ul><a class="pill" data-wa="Face monthly plan (4 facials)" href="#" target="_blank" rel="noopener">Start this plan <span class="go">↗</span></a></div>
+      <div class="plan"><p class="meta"><span>Body · 4 sessions</span></p><h3>Body, weekly</h3><p class="amount">IDR 1.6M<small>/ month</small></p><ul><li>Transport included</li><li>Mix stretching and training</li><li>Progress check every 4 weeks</li></ul><a class="pill" data-wa="Body monthly plan (4 sessions)" href="#" target="_blank" rel="noopener">Start this plan <span class="go"><svg class="i" aria-hidden="true"><use href="#i-ur"/></svg></span></a></div>
+      <div class="plan feature"><p class="meta"><span>Body · 8 sessions</span><span class="flag">Best value</span></p><h3>Body, twice a week</h3><p class="amount">IDR 3.0M<small>/ month</small></p><ul><li>Transport included</li><li>Fastest results for back and hips</li><li>Free reschedule up to 24 h before</li></ul><a class="pill" data-wa="Body monthly plan (8 sessions)" href="#" target="_blank" rel="noopener">Start this plan <span class="go"><svg class="i" aria-hidden="true"><use href="#i-ur"/></svg></span></a></div>
+      <div class="plan"><p class="meta"><span>Face · 4 facials</span></p><h3>Face, weekly</h3><p class="amount">IDR 2.1M<small>/ month</small></p><ul><li>Transport included</li><li>Treatment adjusted week by week</li><li>Home-care notes after each visit</li></ul><a class="pill" data-wa="Face monthly plan (4 facials)" href="#" target="_blank" rel="noopener">Start this plan <span class="go"><svg class="i" aria-hidden="true"><use href="#i-ur"/></svg></span></a></div>
     </div>
     <div class="plans" id="panel-combo" role="tabpanel" aria-labelledby="tab-combo" hidden>
-      <div class="plan feature"><p class="meta"><span>Body + Face · 90 min</span><span class="flag">Popular</span></p><h3>Stretch &amp; Face</h3><p class="amount">IDR 700k</p><ul><li>60 min assisted stretching</li><li>30 min face massage</li><li>One transport fee</li></ul><a class="pill" data-wa="Stretch & Face combo (90 min)" href="#" target="_blank" rel="noopener">Book this combo <span class="go">↗</span></a></div>
-      <div class="plan"><p class="meta"><span>Body + Face · 120 min</span></p><h3>The full reset</h3><p class="amount">IDR 950k</p><ul><li>45 min recovery stretch</li><li>75 min signature facial</li><li>One transport fee</li></ul><a class="pill" data-wa="Full Reset combo (120 min)" href="#" target="_blank" rel="noopener">Book this combo <span class="go">↗</span></a></div>
-      <div class="plan"><p class="meta"><span>Add-on · +30 min</span></p><h3>Add a face massage</h3><p class="amount">IDR 200k</p><ul><li>Add it to any body session</li><li>No extra transport</li></ul><a class="pill" data-wa="Face massage add-on (+30 min)" href="#" target="_blank" rel="noopener">Add to my booking <span class="go">↗</span></a></div>
+      <div class="plan feature"><p class="meta"><span>Body + Face · 90 min</span><span class="flag">Popular</span></p><h3>Stretch &amp; Face</h3><p class="amount">IDR 700k</p><ul><li>60 min assisted stretching</li><li>30 min face massage</li><li>One transport fee</li></ul><a class="pill" data-wa="Stretch & Face combo (90 min)" href="#" target="_blank" rel="noopener">Book this combo <span class="go"><svg class="i" aria-hidden="true"><use href="#i-ur"/></svg></span></a></div>
+      <div class="plan"><p class="meta"><span>Body + Face · 120 min</span></p><h3>The full reset</h3><p class="amount">IDR 950k</p><ul><li>45 min recovery stretch</li><li>75 min signature facial</li><li>One transport fee</li></ul><a class="pill" data-wa="Full Reset combo (120 min)" href="#" target="_blank" rel="noopener">Book this combo <span class="go"><svg class="i" aria-hidden="true"><use href="#i-ur"/></svg></span></a></div>
+      <div class="plan"><p class="meta"><span>Add-on · +30 min</span></p><h3>Add a face massage</h3><p class="amount">IDR 200k</p><ul><li>Add it to any body session</li><li>No extra transport</li></ul><a class="pill" data-wa="Face massage add-on (+30 min)" href="#" target="_blank" rel="noopener">Add to my booking <span class="go"><svg class="i" aria-hidden="true"><use href="#i-ur"/></svg></span></a></div>
     </div>
   </section>
 
@@ -438,7 +479,7 @@ a { color: inherit; }
       </div>
       <div class="team">
         <div class="person">
-          <div class="ph ph-6" data-label="Photo · real therapist portrait" role="img" aria-label="Photo placeholder: therapist portrait"></div>
+          <div class="ph im-therapist" role="img" aria-label="Portrait of Ayu, the therapist"></div>
           <h3>Ayu</h3>
           <p>Stretch therapist &amp; licensed aesthetician · 6 years</p>
         </div>
@@ -455,7 +496,7 @@ a { color: inherit; }
   </section>
 
   <section class="wrap" id="booking" aria-labelledby="steps-title">
-    <div class="steps-card ph ph-hero">
+    <div class="steps-card ph im-still">
       <h2 class="title" id="steps-title">Three messages, <em>then we're at your door.</em></h2>
       <p class="intro">Booking happens on WhatsApp. Here's what to expect.</p>
       <ol class="steps">
@@ -472,9 +513,9 @@ a { color: inherit; }
         <h2 class="title" id="reviews-title">How people feel <em>afterwards</em> <span class="sample">Sample reviews</span></h2>
       </div>
       <div class="reviews">
-        <figure class="review"><blockquote>“I booked one stretch for my back and ended up on the twice-a-week plan. First month in Bali I've actually slept well.”</blockquote><figcaption><span class="ph ph-1" aria-hidden="true"></span><span><b>Sample client</b>Recovery plan, Canggu</span></figcaption></figure>
-        <figure class="review"><blockquote>“She asked about my skin before she touched it. No redness the next day, and my skin felt calm all week.”</blockquote><figcaption><span class="ph ph-3" aria-hidden="true"></span><span><b>Sample client</b>Signature facial, Seminyak</span></figcaption></figure>
-        <figure class="review"><blockquote>“Stretch &amp; Face after a long flight. Ninety minutes and I didn't have to leave the villa.”</blockquote><figcaption><span class="ph ph-5" aria-hidden="true"></span><span><b>Sample client</b>Combo, Ubud</span></figcaption></figure>
+        <figure class="review"><blockquote>“I booked one stretch for my back and ended up on the twice-a-week plan. First month in Bali I've actually slept well.”</blockquote><figcaption><span class="ph im-a1" aria-hidden="true"></span><span><b>Sample client</b>Recovery plan, Canggu</span></figcaption></figure>
+        <figure class="review"><blockquote>“She asked about my skin before she touched it. No redness the next day, and my skin felt calm all week.”</blockquote><figcaption><span class="ph im-a2" aria-hidden="true"></span><span><b>Sample client</b>Signature facial, Seminyak</span></figcaption></figure>
+        <figure class="review"><blockquote>“Stretch &amp; Face after a long flight. Ninety minutes and I didn't have to leave the villa.”</blockquote><figcaption><span class="ph im-a3" aria-hidden="true"></span><span><b>Sample client</b>Combo, Ubud</span></figcaption></figure>
       </div>
     </div>
   </section>
@@ -506,7 +547,7 @@ a { color: inherit; }
     <div class="big">
       <div style="display:grid;gap:22px;justify-items:start">
         <h2>Stretch. Breathe. Glow.</h2>
-        <a class="pill pill--light" data-wa="First session" href="#" target="_blank" rel="noopener">Book now <span class="go">↗</span></a>
+        <a class="pill pill--light" data-wa="First session" href="#" target="_blank" rel="noopener">Book now <span class="go"><svg class="i" aria-hidden="true"><use href="#i-ur"/></svg></span></a>
       </div>
       <div class="contact">
         <h3>Book a visit</h3>
@@ -515,13 +556,13 @@ a { color: inherit; }
         <p>WhatsApp <span class="wa-number">+62 812-0000-0000</span></p>
       </div>
     </div>
-    <div class="legal"><span>Concept design · all names, photos, prices and reviews are placeholders.</span><span>Your Brand Home Studio</span></div>
+    <div class="legal"><span>Concept design · photos are AI-generated; names, prices and reviews are placeholders.</span><span>Your Brand Home Studio</span></div>
   </footer>
 </div>
 
 <div class="mbar" role="region" aria-label="Quick booking">
   <p><b>From IDR 350k</b>We come to you</p>
-  <a class="pill pill--solid" data-wa="First session" href="#" target="_blank" rel="noopener">Book on WhatsApp <span class="go">↗</span></a>
+  <a class="pill pill--solid" data-wa="First session" href="#" target="_blank" rel="noopener">Book on WhatsApp <span class="go"><svg class="i" aria-hidden="true"><use href="#i-ur"/></svg></span></a>
 </div>
 
 <script>
@@ -538,12 +579,12 @@ a { color: inherit; }
 
   // Treatment selector
   var T = [
-    { n: "Assisted Stretching", s: "Stretching", g: "Body", d: "60 min", p: "IDR 450k", ph: "ph-1", l: "Photo · assisted stretch", t: "Deep, held stretches guided by your therapist. Good for desk backs, tight hips and poor sleep." },
-    { n: "Personal Training", s: "Training", g: "Body", d: "60 min", p: "IDR 500k", ph: "ph-5", l: "Photo · training by the pool", t: "Strength and mobility in your living room or by the pool. Beginners welcome; bands, mat and kettlebell brought." },
-    { n: "Recovery Session", s: "Recovery", g: "Body", d: "75 min", p: "IDR 550k", ph: "ph-2", l: "Photo · recovery stretch", t: "Stretching plus soft-tissue release after surfing, hiking, running or a long-haul flight." },
-    { n: "Face Massage", s: "Face massage", g: "Face", d: "45 min", p: "IDR 350k", ph: "ph-4", l: "Photo · face massage", t: "Lymphatic and sculpting massage for a puffy, tense or tired face. Light oil only." },
-    { n: "Hydration Facial", s: "Hydration facial", g: "Face", d: "60 min", p: "IDR 500k", ph: "ph-3", l: "Photo · hydrating mask", t: "Cleanse, gentle exfoliation and a hydrating mask for skin dried out by sun and air-con." },
-    { n: "Signature Facial", s: "Signature facial", g: "Face", d: "75 min", p: "IDR 600k", ph: "ph-6", l: "Photo · signature facial", t: "Double cleanse, extractions only if you want them, a mask matched to your skin, then face and scalp massage." }
+    { n: "Assisted Stretching", s: "Stretching", g: "Body", d: "60 min", p: "IDR 450k", ph: "im-stretch", l: "Assisted stretching session", t: "Deep, held stretches guided by your therapist. Good for desk backs, tight hips and poor sleep." },
+    { n: "Personal Training", s: "Training", g: "Body", d: "60 min", p: "IDR 500k", ph: "im-training", l: "Personal training by the pool", t: "Strength and mobility in your living room or by the pool. Beginners welcome; bands, mat and kettlebell brought." },
+    { n: "Recovery Session", s: "Recovery", g: "Body", d: "75 min", p: "IDR 550k", ph: "im-recovery", l: "Recovery session on a villa terrace", t: "Stretching plus soft-tissue release after surfing, hiking, running or a long-haul flight." },
+    { n: "Face Massage", s: "Face massage", g: "Face", d: "45 min", p: "IDR 350k", ph: "im-face", l: "Face massage", t: "Lymphatic and sculpting massage for a puffy, tense or tired face. Light oil only." },
+    { n: "Hydration Facial", s: "Hydration facial", g: "Face", d: "60 min", p: "IDR 500k", ph: "im-hydra", l: "Hydrating mask being applied", t: "Cleanse, gentle exfoliation and a hydrating mask for skin dried out by sun and air-con." },
+    { n: "Signature Facial", s: "Signature facial", g: "Face", d: "75 min", p: "IDR 600k", ph: "im-sig", l: "Signature facial with scalp massage", t: "Double cleanse, extractions only if you want them, a mask matched to your skin, then face and scalp massage." }
   ];
   var chips = document.getElementById("chips"), cur = 0;
   T.forEach(function (x, i) {
@@ -572,7 +613,7 @@ a { color: inherit; }
       c.setAttribute("aria-selected", k === cur ? "true" : "false"); c.tabIndex = k === cur ? 0 : -1;
     });
     var img = document.getElementById("tImg");
-    img.className = "ph " + x.ph; img.setAttribute("data-label", x.l);
+    img.className = "ph " + x.ph; img.setAttribute("aria-label", x.l);
     document.getElementById("tName").textContent = x.n;
     document.getElementById("tGroup").textContent = x.g;
     document.getElementById("tDur").textContent = x.d;
